@@ -1,0 +1,1 @@
+# vsc-file-hash-extension
