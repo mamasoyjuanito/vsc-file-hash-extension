@@ -2,8 +2,13 @@
   "name": "file-hash",
   "displayName": "File Hash",
   "description": "Get hash string from file",
-  "version": "0.0.1",
-  "license" : "SEE LICENSE IN licenses/MIT", 
+  "version": "0.0.2",
+  "license" : "SEE LICENSE IN https://github.com/mamasoyjuanito/vsc-file-hash-extension/blob/main/LICENSE", 
+  "publisher": "jmenesesi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mamasoyjuanito/vsc-file-hash-extension.git"
+  },
   "engines": {
     "vscode": "^1.82.2"
   },
@@ -27,6 +32,16 @@
     ],
     "menus": {
       "explorer/context": [
+        {
+          "command": "file-hash.get-file-hash",
+          "group": "other"
+        },
+        {
+          "command": "file-hash.trim-and-get-file-hash",
+          "group": "other"
+        }
+      ],
+      "editor/title/context": [
         {
           "command": "file-hash.get-file-hash",
           "group": "other"

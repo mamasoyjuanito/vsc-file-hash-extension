@@ -9,9 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		vscode.workspace.openTextDocument(resource).then((document) => {
 			let text = document.getText();
-			console.log("Contenido", text.length);
 			let hash = CryptoJS.SHA256(text).toString(CryptoJS.enc.Hex);
-			console.log(hash);
 			vscode.env.clipboard.writeText(hash);
 			vscode.window.showInformationMessage('Hash copied to clipboard!');
 		  });
@@ -24,11 +22,10 @@ export function activate(context: vscode.ExtensionContext) {
 
 		vscode.workspace.openTextDocument(resource).then((document) => {
 			let text = document.getText();
+			text = text.replace(/^\t+/gm, " ");
 			text = text.replace(/(\r\n|\n|\r)/gm, "");
 			fs.writeFileSync(resource.fsPath, text, 'utf8');
-			console.log("Contenido", text.length);
 			let hash = CryptoJS.SHA256(text).toString(CryptoJS.enc.Hex);
-			console.log(hash);
 			vscode.env.clipboard.writeText(hash);
 			vscode.window.showInformationMessage('Hash copied to clipboard!');
 		  });
